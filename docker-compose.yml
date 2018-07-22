@@ -1,0 +1,14 @@
+version: '3'
+services:
+  reflector:
+    build: ./reflector
+    image: "moosreflector:latest"
+    environment:
+      - "KEY_FILE=/app/private/keys.json"
+      - "REDIS_SERVER=redis"
+    ports:
+      - "8080:5000"
+  redis:
+    image: "redis:alpine"
+    ports:
+      - "6379:6379"
